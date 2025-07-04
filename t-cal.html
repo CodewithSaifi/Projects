@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+        margin: 18px;
+      }
+      span {
+        margin: 3px;
+      }
+      h2 {
+        margin: 30px;
+      }
+      p {
+        margin: 25px;
+      }
+      button {
+        border: none;
+        padding: 12px 20px;
+        font-size: medium;
+        font-weight: 600;
+        border-radius: 8px;
+        background-color: lightpink;
+        color: white;
+        transition: 0.3s;
+        &:hover {
+          background-color: hotpink;
+        }
+      }
+    </style>
+  </head>
+  <body id="disco">
+    <h2>Color Flipper</h2>
+    <span>Color hex code &rarr; </span> <span id="hexCode"># Demo</span>
+    <p>Change the background color by clicking this button</p>
+    <button id="btn">Change color</button>
+    <script>
+      let bg = document.querySelector("#disco");
+      let hexCode = document.querySelector("#hexCode");
+      let btn = document.querySelector("#btn");
+      function randomColor() {
+        let num = Math.floor(Math.random() * 16777215);
+        let hex = num.toString(16);
+        hex = hex.padStart(6, "0");
+        return `#${hex}`;
+      }
+      btn.addEventListener("click", () => {
+        let color = randomColor();
+        bg.style.backgroundColor = color;
+        hexCode.innerText = color;
+      });
+    </script>
+  </body>
+</html>

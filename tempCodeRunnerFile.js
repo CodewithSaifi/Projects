@@ -1,4 +1,4 @@
-function sayLove(love) {
-  return "Sweety " + love + " Saifi"
+function subtract(num1, num2) {
+  return num1 - num2;
 }
-console.log(sayLove("Love"));
+console.log(subtract(15, 8));

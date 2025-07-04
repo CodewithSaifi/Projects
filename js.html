@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Quote Generator</title>
+  </head>
+  <body>
+    <h1>Random Quote Generator</h1>
+
+    <p id="quoteDisplay">Click the button to see a quote!</p>
+
+    <button id="quoteBtn">Get Quote</button>
+
+    <script>
+      let quoteDisplay = document.querySelector("#quoteDisplay");
+      let btn = document.querySelector("#quoteBtn");
+      let quotes = [
+        "The best and most beautiful things in the world cannot be seen or even touched - they must be felt with heart.",
+        "The best prepration for tomorrow is doing your best today.",
+        "Keep your face always toward the sunshine - and shadows will fall behind you.",
+        "Perfection is not attainable, but if we chase perfection we can catch excellence.",
+        "There are two ways to spreading light: to be the candle or the mirror that reflects it.",
+        "It is during our darkest moments that we must focus to see the light.",
+        "I can't change the direction of the wind, but I can adjust my sails to always reach my destination.",
+        "It is never too late to be what you might have been.",
+        "Nothing is impossible, the word itself says i'm possible!",
+      ];
+      btn.onclick = function () {
+        let randomQuote = Math.floor(Math.random() * quotes.length);
+        quoteDisplay.innerText = quotes[randomQuote];
+      };
+    </script>
+  </body>
+</html>

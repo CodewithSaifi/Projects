@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+      * {
+        font-family: Roboto, Arial, Helvetica, sans-serif;
+      }
+
+      .calculator {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .cal-box {
+        border: 1px solid black;
+        border-radius: 18px;
+        background-color: black;
+        padding: 10px;
+      }
+
+      .display {
+        margin: 120px;
+        color: white;
+      }
+
+      .buttons {
+        button {
+          font-size: x-large;
+          border: 1px solid #2e2e2e;
+          border-radius: 20px;
+          width: 70px;
+          height: 70px;
+          margin: 5px 3px;
+        }
+      }
+
+      .white-btn {
+        color: white;
+        background-color: #2e2e2e;
+      }
+
+      .orange-btn {
+        color: #ff9100;
+        background-color: #2e2e2e;
+      }
+
+      .orange-bg-btn {
+        background-color: #ff9100;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="calculator">
+      <div class="cal-box">
+        <div id="display" class="display">0</div>
+        <div class="buttons">
+          <button class="orange-btn">AC</button>
+          <button class="orange-btn">&larr;</button>
+          <button class="orange-btn">%</button>
+          <button class="orange-btn">&divide;</button>
+        </div>
+        <div class="buttons">
+          <button class="white-btn ,num-btn">7</button>
+          <button class="white-btn ,num-btn">8</button>
+          <button class="white-btn ,num-btn">9</button>
+          <button class="orange-btn">x</button>
+        </div>
+        <div class="buttons">
+          <button class="white-btn ,num-btn">4</button>
+          <button class="white-btn ,num-btn">5</button>
+          <button class="white-btn ,num-btn">6</button>
+          <button class="orange-btn">-</button>
+        </div>
+        <div class="buttons">
+          <button class="white-btn ,num-btn">1</button>
+          <button class="white-btn ,num-btn">2</button>
+          <button class="white-btn ,num-btn">3</button>
+          <button class="orange-btn">+</button>
+        </div>
+        <div class="buttons">
+          <button class="orange-btn">&nbsp;</button>
+          <button class="white-btn ,num-btn">0</button>
+          <button class="white-btn">.</button>
+          <button class="orange-bg-btn">=</button>
+        </div>
+      </div>
+    </div>
+    <script src="practice.js"></script>
+  </body>
+</html>

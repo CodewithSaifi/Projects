@@ -1,0 +1,57 @@
+<style>
+  div {
+    margin: 10px;
+  }
+  input {
+    margin: 5px;
+  }
+  button {
+    margin: 5px;
+  }
+  span {
+    margin: 2px;
+  }
+</style>
+<div>
+  <input id="input1" type="number" placeholder="Input 1" />
+  <input id="input2" type="number" placeholder="Input 2" />
+  <span>=</span>
+  <span id="output"></span>
+</div>
+<div>
+  <button id="add">Add</button>
+  <button id="subtract">Subtract</button>
+  <button id="multiply">Multiply</button>
+  <button id="divide">Divide</button>
+  <button id="ac">AC</button>
+</div>
+<script>
+  let add = document.querySelector("#add");
+  let subtract = document.querySelector("#subtract");
+  let multiply = document.querySelector("#multiply");
+  let divide = document.querySelector("#divide");
+  let input1 = document.querySelector("#input1");
+  let input2 = document.querySelector("#input2");
+  let output = document.querySelector("#output");
+
+  add.addEventListener("click", function () {
+    output.innerText = Number(input1.value) + Number(input2.value);
+    input1.value = "";
+    input2.value = "";
+  });
+  subtract.addEventListener("click", function () {
+    output.innerText = Number(input1.value) - Number(input2.value);
+    input1.value = "";
+    input2.value = "";
+  });
+  multiply.addEventListener("click", function () {
+    output.innerText = Number(input1.value) * Number(input2.value);
+    input1.value = "";
+    input2.value = "";
+  });
+  divide.addEventListener("click", function () {
+    output.innerText = Number(input1.value) / Number(input2.value);
+    input1.value = "";
+    input2.value = "";
+  });
+</script>

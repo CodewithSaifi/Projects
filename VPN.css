@@ -24,6 +24,10 @@
       color: #4f5665;
       font-size: 16px;
       font-weight: 400;
+      transition: 0.3s ease-in-out;
+      &:hover{
+        color: #f53855;
+      }
     }
   }
 }
@@ -38,6 +42,10 @@
   font-weight: 500;
   font-size: medium;
   cursor: pointer;
+  transition: 0.3s ease-in-out;
+  &:hover{
+    color: #f53855;
+  }
 }
 .nav-button2 {
   text-decoration: none;
