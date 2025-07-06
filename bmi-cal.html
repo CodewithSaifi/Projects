@@ -1,27 +1,127 @@
-<style>
-  * {
-    text-align: center;
-    margin: 8px;
-  }
-</style>
-<input
-  type="number"
-  name="height"
-  id="height"
-  placeholder="Height in cm"
-/><br />
-<input
-  type="number"
-  name="weight"
-  id="weight"
-  placeholder="Weight in kg"
-/><br />
-<div>
-<input type="radio" name="gender" id="male" value="male" />
-<label for="male">Male</label>
-<input type="radio" name="gender" id="female" value="female" />
-<label for="female">Female</label>
-</div>
-<san>Your BMI:</psan>
-<span>22.8 &nbsp; (Normal Weight)</span>
-<button></button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Expense Tracker</title>
+  <style>
+    * {
+      font-family: Arial, Helvetica, sans-serif;
+      text-align: center;
+      margin: 10px;
+    }
+    #btn {
+      border-radius: 8px;
+      border: none;
+      color: azure;
+      font-weight: 600;
+      background-color: lightpink;
+      padding: 8px 10px;
+      cursor: pointer;
+      transition: 0.3s ease-in-out;
+    }
+    #btn:hover {
+      background-color: hotpink;
+    }
+    input, select {
+      border: none;
+      padding: 5px;
+      border-radius: 10px;
+      background-color: rgba(158, 154, 154, 0.234);
+      text-align: start;
+    }
+    #list {
+      list-style: none;
+      margin: 25px;
+      padding: 0;
+    }
+    li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 8px auto;
+    }
+    .delete-icon {
+      width: 20px;
+      height: 20px;
+      margin-left: 10px;
+      cursor: pointer;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+  <h1>Expense Tracker</h1>
+
+  <label for="amount">Amount</label>
+  <input type="number" name="amount" id="amount" placeholder="Enter amount" /><br />
+
+  <label for="description">Description</label>
+  <input type="text" name="description" id="description" placeholder="Enter where you spend" /><br />
+
+  <label for="category">Category</label>
+  <select id="category">
+    <option value="Food">Food</option>
+    <option value="Grocery">Grocery</option>
+    <option value="Travel">Travel</option>
+    <option value="Shopping">Shopping</option>
+    <option value="Other">Other</option>
+  </select><br />
+
+  <button id="btn">Add Expense</button>
+
+  <h2>Expenses</h2>
+  <ul id="list"></ul>
+
+  <h3>Total Spent: ₹<span id="total">0</span></h3>
+
+  <script>
+    let amount = document.querySelector("#amount");
+    let description = document.querySelector("#description");
+    let category = document.querySelector("#category");
+    let btn = document.querySelector("#btn");
+    let list = document.querySelector("#list");
+    let totalSpan = document.querySelector("#total");
+    let total = 0;
+
+    btn.addEventListener("click", () => {
+      if (amount.value === "" || description.value === "") {
+        alert("Please fill in all fields.");
+        return;
+      }
+
+      let amountValue = Number(amount.value);
+
+      // Create li
+      let newItem = document.createElement("li");
+
+      // Create text
+      let textSpan = document.createElement("span");
+      textSpan.innerText = `₹${amount.value} | ${description.value} | ${category.value}`;
+
+      // Create delete icon
+      let deleteIcon = document.createElement("img");
+      deleteIcon.src = "Assets/delete.svg";
+      deleteIcon.alt = "Delete";
+      deleteIcon.classList.add("delete-icon");
+
+      // Add delete functionality
+      deleteIcon.addEventListener("click", () => {
+        newItem.remove();
+        total -= amountValue;
+        totalSpan.innerText = total;
+      });
+
+      newItem.appendChild(textSpan);
+      newItem.appendChild(deleteIcon);
+      list.appendChild(newItem);
+
+      total += amountValue;
+      totalSpan.innerText = total;
+
+      amount.value = "";
+      description.value = "";
+    });
+  </script>
+</body>
+</html>

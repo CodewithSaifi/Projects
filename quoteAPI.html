@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Quote Generator</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        padding: 20px;
+        background-color: #f0f0f0;
+      }
+      #quoteDisplay {
+        margin-top: 20px;
+        font-size: 1.2rem;
+        background: #fff;
+        padding: 15px;
+        border-radius: 5px;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Random Quote Generator</h1>
+
+    <p id="quoteDisplay">Click the button to see a quote!</p>
+
+    <button id="quoteBtn">Get Quote</button>
+
+    <script>
+      let quoteDisplay = document.querySelector("#quoteDisplay");
+      let btn = document.querySelector("#quoteBtn");
+
+      let allQuotes = [];
+
+      async function loadQuotes() {
+        try {
+          let res = await fetch("https://type.fit/api/quotes");
+          allQuotes = await res.json();
+          showRandomQuote();
+        } catch (error) {
+          quoteDisplay.innerText = "Kuch gadbad ho gayi bhai! " + error.message;
+        }
+      }
+
+      function showRandomQuote() {
+        if (allQuotes.length === 0) {
+          quoteDisplay.innerText = "Quotes abhi load ho rahe hain...";
+          return;
+        }
+
+        let randomIndex = Math.floor(Math.random() * allQuotes.length);
+        let quote = allQuotes[randomIndex];
+        quoteDisplay.innerText = `"${quote.text}" - ${quote.author || "Unknown"}`;
+      }
+
+      btn.onclick = showRandomQuote;
+
+      // First time quote load
+      loadQuotes();
+    </script>
+  </body>
+</html>
