@@ -1,11 +1,6 @@
-async function getQuote() {
-  try {
-    let res = await fetch("https://api.api-ninjas.com/v1/quotes");
-    let data = await res.json();
-    console.log(data.quote);
-    console.log(data.author);
-  } catch (e) {
-    console.log("Error a gya bhai", e);
-  }
-}
-getQuote();
+let arr = [51, 44, 88, 66, 78, 79, 4, 79, 979, 354, 565];
+let sum = 0;
+arr.forEach((s) => {
+  sum += s;
+});
+console.log(sum)

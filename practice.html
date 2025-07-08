@@ -1,0 +1,34 @@
+<script>
+  let products = [
+    { id: 1, name: "Laptop", price: 55000, category: "Electronics" },
+    { id: 2, name: "Shirt", price: 1200, category: "Fashion" },
+    { id: 3, name: "Phone", price: 25000, category: "Electronics" },
+    { id: 4, name: "Shoes", price: 3000, category: "Fashion" },
+    { id: 5, name: "Monitor", price: 12000, category: "Electronics" },
+  ];
+  localStorage.setItem("products", JSON.stringify(products));
+  let savedProducts = JSON.parse(localStorage.getItem("products"));
+
+  let electronicsProducts = savedProducts.filter(
+    (electronics) => electronics.category === "Electronics"
+  );
+  let sumOfElectronicsProducts = 0;
+  electronicsProducts.forEach((eProduct) => {
+    sumOfElectronicsProducts += eProduct.price;
+  });
+  let fashionProducts = savedProducts.filter(
+    (fashion) => fashion.category === "Fashion"
+  );
+  let sumOfFashionProducts = 0;
+  fashionProducts.forEach((fProduct) => {
+    sumOfFashionProducts += fProduct.price;
+  });
+  let totalOfProducts = {
+    electronicsTotal: sumOfElectronicsProducts,
+    fashiontotal: sumOfFashionProducts,
+  };
+  localStorage.setItem("totalOfProducts", JSON.stringify(totalOfProducts));
+  let savedTotal = JSON.parse(localStorage.getItem("totalOfProducts"));
+  console.log(`Total for Eletronics: ${savedTotal.electronicsTotal}`);
+  console.log(`Total for Fashion: ${savedTotal.fashiontotal}`);
+</script>
