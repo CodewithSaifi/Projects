@@ -25,7 +25,7 @@
       font-size: 16px;
       font-weight: 400;
       transition: 0.3s ease-in-out;
-      &:hover{
+      &:hover {
         color: #f53855;
       }
     }
@@ -43,7 +43,7 @@
   font-size: medium;
   cursor: pointer;
   transition: 0.3s ease-in-out;
-  &:hover{
+  &:hover {
     color: #f53855;
   }
 }
@@ -445,7 +445,7 @@
 }
 
 .section-8 {
-   display: flex;
+  display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 50px 250px;
@@ -455,9 +455,9 @@
 }
 
 .section-8-text {
-   h2{
+  h2 {
     color: #0b132a;
-     font-size: xx-large;
+    font-size: xx-large;
     font-weight: 500;
     line-height: 45px;
     word-spacing: 3px;
@@ -473,7 +473,7 @@
 }
 
 .section-8-btn {
-   text-decoration: none;
+  text-decoration: none;
   /* border: 1px solid #f53855; */
   background-color: #f53838;
   border-radius: 12px;
@@ -482,4 +482,45 @@
   color: white;
   font-size: 16px;
   font-weight: bold;
+}
+.section-9 {
+  padding: 80px 160px;
+  display: grid;
+  grid-template-columns: 45% auto;
+}
+.section-9-box1-text {
+  font-size: 18px;
+  color: #4f5665;
+  margin: 22px 9px;
+  margin-right: 160px;
+}
+.social-media-logo {
+  margin: 26px 9px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+.section-9-box2 {
+  display: grid;
+  grid-template-columns: auto auto auto;
+
+  h4 {
+    font-size: 20px;
+    font-weight: 500;
+    padding: 12px 0px;
+  }
+  p {
+    color: #4f5665;
+    margin: 22px 0px;
+    cursor: pointer;
+  }
+}
+
+.the-end {
+  display: flex;
+  justify-content: space-between;
+  font-family: poppins, Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #4f5665;
+  padding: 18px 180px;
 }
