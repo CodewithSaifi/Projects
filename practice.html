@@ -1,34 +1,49 @@
-<script>
-  let products = [
-    { id: 1, name: "Laptop", price: 55000, category: "Electronics" },
-    { id: 2, name: "Shirt", price: 1200, category: "Fashion" },
-    { id: 3, name: "Phone", price: 25000, category: "Electronics" },
-    { id: 4, name: "Shoes", price: 3000, category: "Fashion" },
-    { id: 5, name: "Monitor", price: 12000, category: "Electronics" },
-  ];
-  localStorage.setItem("products", JSON.stringify(products));
-  let savedProducts = JSON.parse(localStorage.getItem("products"));
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Todo LocalStorage</title>
+</head>
+<body>
+  <input type="text" id="input" />
+  <button id="btn">Add</button>
+  <ul id="list"></ul>
 
-  let electronicsProducts = savedProducts.filter(
-    (electronics) => electronics.category === "Electronics"
-  );
-  let sumOfElectronicsProducts = 0;
-  electronicsProducts.forEach((eProduct) => {
-    sumOfElectronicsProducts += eProduct.price;
-  });
-  let fashionProducts = savedProducts.filter(
-    (fashion) => fashion.category === "Fashion"
-  );
-  let sumOfFashionProducts = 0;
-  fashionProducts.forEach((fProduct) => {
-    sumOfFashionProducts += fProduct.price;
-  });
-  let totalOfProducts = {
-    electronicsTotal: sumOfElectronicsProducts,
-    fashiontotal: sumOfFashionProducts,
-  };
-  localStorage.setItem("totalOfProducts", JSON.stringify(totalOfProducts));
-  let savedTotal = JSON.parse(localStorage.getItem("totalOfProducts"));
-  console.log(`Total for Eletronics: ${savedTotal.electronicsTotal}`);
-  console.log(`Total for Fashion: ${savedTotal.fashiontotal}`);
-</script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      let input = document.querySelector("#input");
+      let btn = document.querySelector("#btn");
+      let list = document.querySelector("#list");
+
+      // ✅ Purani list read karo ya empty array lo
+      let savedItems = JSON.parse(localStorage.getItem("list")) || [];
+
+      // ✅ Purani list dikhado
+      savedItems.forEach((item) => {
+        let newLi = document.createElement("li");
+        newLi.innerText = item;
+        list.appendChild(newLi);
+      });
+
+      btn.addEventListener("click", () => {
+        if (input.value.trim() === "") {
+          alert("Input likh pehle, boss!");
+        } else {
+          let newLi = document.createElement("li");
+          newLi.innerText = input.value;
+          list.appendChild(newLi);
+
+          // ✅ Naya item array me daalo
+          savedItems.push(input.value);
+
+          // ✅ Puray array ko localStorage me save karo
+          localStorage.setItem("list", JSON.stringify(savedItems));
+
+          input.value = "";
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<style>
+  * {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 10px;
+  }
+
+  #note {
+    text-align: start;
+    margin: 18px;
+  }
+  #saveBtn {
+    border: none;
+    border-radius: 8px;
+    padding: 10px 30px;
+    background-color: rgb(143, 143, 244);
+    color: azure;
+    font-size: large;
+    font-weight: 500;
+  }
+</style>
+<textarea name="note" id="note" placeholder="Enter your note"></textarea>
+<div id="output">Output show here</div>
+<button id="saveBtn">Save</button>
+
+<script>
+  let input = document.querySelector("#note");
+  let output = document.querySelector("#output");
+  let btn = document.querySelector("#saveBtn");
+
+  btn.addEventListener("click", () => {
+    if (input.value.trim() !== "") {
+      output.innerText = input.value;
+      localStorage.setItem("saveNote", input.value);
+      input.value = "";
+    } else {
+      alert("Write something");
+    }
+  });
+  document.addEventListener("DOMContentLoaded", () => {
+    let saveNote = localStorage.getItem("saveNote");
+    if (saveNote !== null) {
+      output.innerText = saveNote;
+    }
+  });
+</script>

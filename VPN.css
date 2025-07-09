@@ -512,6 +512,10 @@
     color: #4f5665;
     margin: 22px 0px;
     cursor: pointer;
+    transition: 0.3s ease-in-out;
+    &:hover{
+      color: #f53855;
+    }
   }
 }
 
