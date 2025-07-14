@@ -508,10 +508,12 @@
     font-size: 20px;
     font-weight: 500;
     padding: 12px 0px;
+    width: fit-content;
   }
   p {
     color: #4f5665;
     margin: 22px 0px;
+    width: fit-content;
     cursor: pointer;
     transition: 0.3s ease-in-out;
     &:hover {
